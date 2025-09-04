@@ -60,7 +60,7 @@ const decimalRoman = [
 ];
 
 // Hide the output field initially
-outputResult.parentElement.style.display = "none";
+outputResult.style.display = "hidden";
 
 // Add event listener to the convert button
 convertBtn.addEventListener("click", () => {
@@ -68,7 +68,7 @@ convertBtn.addEventListener("click", () => {
   const input = numberInput.value;
 
   // Show the output field
-  outputResult.parentElement.style.display = "block";
+  outputResult.style.display = "block";
 
   // Validate the input
   if (!input) {
@@ -86,12 +86,11 @@ convertBtn.addEventListener("click", () => {
   }
 
   // Reset output styles for valid conversion
-  outputResult.style.color = "#E0E0E0";
-  outputResult.parentElement.style.backgroundColor = '#581661';
+  outputResult.style.color = "#000000";
 
   // Convert the number to Roman numeral
   const romanNumberal = decimalToRoman(parseInt(input));
-  outputResult.textContent = romanNumberal;
+  outputResult.textContent = `${input} --> ${romanNumberal}`;
 
   // Clear the input field
   numberInput.value = "";
@@ -114,5 +113,4 @@ const decimalToRoman = (input) => {
 // Function to apply warning styles to the output field
 const warningColor = () => {
   outputResult.style.color = "#d10d31";
-  outputResult.parentElement.style.backgroundColor = '#5a0d78';
 };
